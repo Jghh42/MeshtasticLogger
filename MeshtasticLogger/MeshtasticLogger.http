@@ -1,0 +1,10 @@
+@MeshtasticLogger_HostAddress = http://localhost:5123
+
+GET {{MeshtasticLogger_HostAddress}}/overview
+Accept: application/json
+
+###
+GET {{MeshtasticLogger_HostAddress}}/test
+Accept: application/json
+
+###
