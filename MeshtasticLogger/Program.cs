@@ -28,7 +28,7 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 
-app.MapGet("/overview", async (NpsqlConfig config) =>
+app.MapGet("/overview", async (NpsqlConfig config, MeshtasticDbContext context) =>
     {
         await using var connection = new NpgsqlConnection(config.ConnectionString);
 
