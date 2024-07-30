@@ -1,9 +1,9 @@
-﻿FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS base
+﻿FROM mcr.microsoft.com/dotnet/aspnet:8.0.7-alpine3.20-arm64v8 AS base
 WORKDIR /app
 EXPOSE 80
 EXPOSE 443
 
-FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
+FROM mcr.microsoft.com/dotnet/sdk:8.0.7-alpine3.20-arm64v8 AS build
 WORKDIR /src
 COPY ["MeshtasticLogger/MeshtasticLogger.csproj", "MeshtasticLogger/"]
 RUN dotnet restore "MeshtasticLogger/MeshtasticLogger.csproj"
