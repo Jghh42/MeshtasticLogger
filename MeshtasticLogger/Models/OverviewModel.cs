@@ -11,13 +11,14 @@ public class OverviewModel
     public long? DMTimestamp { get; set; }
     public long? PTimestamp { get; set; }
 
-    private long? _timestamp;
+    private DateTimeOffset? _timestamp;
 
-    public long Timestamp
+    public DateTimeOffset Timestamp
     {
         get
         {
-            _timestamp ??= (long)new[] { NITimestamp, DMTimestamp, PTimestamp }.Max()!;
+            var max = (long)new[] { NITimestamp, DMTimestamp, PTimestamp }.Max()!;
+            _timestamp ??= DateTimeOffset.FromUnixTimeSeconds(max);
             return _timestamp.Value;
         }
     }
