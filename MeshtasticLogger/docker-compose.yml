@@ -4,8 +4,8 @@
     ports:
       - "5123:8080"
     environment:
-      #MqttHost: mqtt
-      MqttHost: 192.168.0.114
+      MqttHost: mosquitto
+      #MqttHost: 192.168.0.114
       Npsql__Connectionstring: Host=db:5432;Username=postgres;Password=example;Database=postgres
   db:
     image: postgres
@@ -13,5 +13,5 @@
     shm_size: 128mb
     environment:
       POSTGRES_PASSWORD: example
-  mqtt: # still needs config to allow anonymous
+  mosquitto: # still needs config to allow anonymous
     image: eclipse-mosquitto
